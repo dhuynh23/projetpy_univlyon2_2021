@@ -12,7 +12,7 @@ et de visualiser son évolution temporelle.
 # Indications sur l'execution du projet
 
 Afin d'executer le projet vous avez besoin d'un intérpréteur python ( Spyder ).
-
+* Installer les librairies du fichier requirements
 * Executer le fichier "mainscreen.py"
 * Remplir le thème selon le choix de l'utilisateur
 * Cliquer sur le boutton OK
