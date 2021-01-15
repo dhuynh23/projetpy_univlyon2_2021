@@ -173,11 +173,11 @@ class Ui_MainWindow(object):
                 self.getDocsFromArxiv(self.inputTheme.text(), self.spArticlesMax.value())
                 
                 # Concaténation de tous les documents et nettoyage + Chargement des propriétés wordsByDoc et wordsStrByDoc
-                self.corpus.get_word_list_from_docType("reddit")
+                self.corpus.fill_dicos_words ("reddit")
                 self.progressBar.setValue(80)
                 
                 # Concaténation de tous les documents et nettoyage + Chargement des propriétés wordsByDoc et wordsStrByDoc
-                self.corpus.get_word_list_from_docType("arxiv")
+                self.corpus.fill_dicos_words ("arxiv")
                 self.progressBar.setValue(100)
                     
                 self.progressBar.setValue(0)

@@ -63,8 +63,8 @@ class Corpus():
     def save(self,file):
             pickle.dump(self, open(file, "wb" ))
     
-    # Retourne tout le corpus en un seul grand texte concaténé et nettoyé
-    def get_word_list_from_docType(self, docType):        
+    # Rempli les dictionnaires du corpus à partir du texte des documents
+    def fill_dicos_words(self, docType):        
         if not docType in self.wordsByDoc: #Si le dictionnaire wordsByDoc ne contient pas de clé reddit/arxiv             
             textConcatene = ''
             for key, value in self.collection.items(): # On parcours chaque document du corpus
@@ -83,11 +83,10 @@ class Corpus():
             # ["mot1", "mot2"] devient "mot1 mot2"
             self.wordsStrByDoc[docType] = ' '.join(word for word in self.wordsByDoc.get(docType))
 
-        return self.wordsByDoc.get(docType)
     
     # Trouve le top x des mots de tout le corpus
     def get_most_common_words(self, topX, docType):
-        mots = self.get_word_list_from_docType(docType)
+        mots = self.wordsByDoc.get(docType)
         # On recupere le dictionnaire de mot (du docType reddit ou arxiv) qu'on transforme en objet Collection.Counter
         cc = collections.Counter(mots)
         # Utilisation de la fonction most_common (https://docs.python.org/3/library/collections.html)
